@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Happy 2nd Monthsary, Alex</title>
+<meta name="theme-color" content="#f4611e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Young+Serif&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --berry:#3b0f26; --pink:#ff5c93; --hot:#e8337a; --orange:#f4611e; --tang:#ff9a3c;
+  --peach:#ffd3bd; --blush:#fff1ec; --paper:#fffdfb;
+  --display:"Young Serif",Georgia,"Times New Roman",serif;
+  --hand:"Caveat","Segoe Script",cursive;
+  --text:"Newsreader",Georgia,"Times New Roman",serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--text);background:var(--blush);color:var(--berry);-webkit-font-smoothing:antialiased}
+body.lock{overflow:hidden;height:100vh}
+:focus-visible{outline:3px solid var(--berry);outline-offset:4px}
+
+/* ---------- intro ---------- */
+#intro{position:fixed;inset:0;z-index:20;background:var(--peach);display:grid;place-items:center;text-align:center;
+  clip-path:circle(150% at 50% 42%);transition:clip-path 1.6s cubic-bezier(.75,0,.25,1)}
+#intro.bloom{clip-path:circle(0% at 50% 42%);pointer-events:none}
+#intro p{font-size:clamp(1.15rem,3.6vw,1.5rem);font-style:italic;min-height:2em;margin-top:1.25rem}
+#heart{position:relative;display:block;margin:0 auto;width:clamp(190px,48vw,290px);aspect-ratio:32/28;border:0;background:none;cursor:pointer;
+  -webkit-tap-highlight-color:transparent;touch-action:manipulation}
+#heart svg{position:absolute;inset:0;width:100%;height:100%}
+#heart .fill{clip-path:inset(calc(100% - var(--p,0%)) 0 0 0);transition:clip-path .25s ease-out}
+#intro.bloom #heart{transition:transform 1s ease-in;transform:scale(1.5)}
+.float{position:fixed;z-index:30;width:22px;pointer-events:none;left:0;top:0}
+
+/* ---------- polaroids ---------- */
+.pol{position:absolute;width:var(--w,150px);padding:7px 7px 26px;background:var(--paper);
+  box-shadow:0 14px 26px -14px rgba(59,15,38,.55);transform:rotate(var(--r,0deg))}
+.pol .frame{position:relative;aspect-ratio:4/5;background:repeating-linear-gradient(135deg,var(--peach) 0 10px,#ffc2d4 10px 20px)}
+.pol img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pol::after{content:"";position:absolute;top:-9px;left:50%;width:46px;height:16px;margin-left:-23px;background:rgba(255,154,60,.6);transform:rotate(var(--t,-3deg))}
+.pol:nth-child(even)::after{background:rgba(255,92,147,.55)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100vh;min-height:100svh;background:linear-gradient(165deg,#ff8a2b 0%,#ff5f5f 55%,#ff4f9a 100%);overflow:hidden;display:grid;place-items:center;padding:2rem}
+.hero .pol{--w:clamp(96px,18vw,215px);opacity:0;transform:rotate(var(--r)) scale(.15);
+  transition:opacity .5s ease,transform .9s cubic-bezier(.2,1.35,.4,1);transition-delay:calc(var(--i)*110ms + 500ms)}
+.in .hero .pol{opacity:1;transform:rotate(var(--r)) scale(1)}
+.hero::before{content:"";position:absolute;left:50%;top:46%;width:min(120vw,900px);aspect-ratio:1;transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(255,226,150,.85) 0,rgba(255,190,90,.55) 32%,rgba(255,190,90,0) 66%)}
+.drift{position:absolute;bottom:-40px;width:18px;opacity:.55;animation:drift linear infinite;pointer-events:none}
+@keyframes drift{to{transform:translateY(-115vh) rotate(40deg);opacity:0}}
+.hero h1{position:relative;z-index:2;font:400 clamp(2.6rem,9.5vw,7.2rem)/.98 var(--display);color:var(--blush);text-align:center;letter-spacing:-.01em;text-wrap:balance;text-shadow:4px 5px 0 var(--berry)}
+.hero .sub{position:relative;z-index:2;margin-top:1.5rem;text-align:center;font-size:clamp(1.05rem,2.6vw,1.35rem);font-style:italic;color:var(--berry)}
+.hero .sub a{color:inherit}
+.cue{position:absolute;z-index:2;bottom:1.4rem;left:50%;transform:translateX(-50%);color:var(--berry);font-size:1rem;text-decoration:none;font-style:italic}
+
+/* ---------- band ---------- */
+.band{background:var(--berry);color:var(--pink);overflow:hidden;white-space:nowrap;padding:.9rem 0;border-block:3px solid var(--tang)}
+.track{display:inline-flex;animation:slide 32s linear infinite;font:400 clamp(1.3rem,3.6vw,1.9rem) var(--display)}
+.track span{padding-right:2rem}
+.track b{color:var(--tang);font-weight:400;padding-right:2rem}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* ---------- letter ---------- */
+.letterwrap{position:relative;overflow:hidden;padding:7rem 1.25rem 8rem;background-color:var(--peach);background-image:radial-gradient(rgba(232,51,122,.28) 1.6px,transparent 1.8px);background-size:22px 22px}
+.side .pol{--w:clamp(84px,13.5vw,175px)}
+.letter{position:relative;z-index:2;width:min(36rem,100% - 5rem);margin:0 auto;background:var(--paper);
+  padding:clamp(1.6rem,5vw,3.2rem) clamp(1.4rem,5vw,3rem);transform:rotate(-.5deg);
+  box-shadow:0 30px 50px -30px rgba(59,15,38,.5);border-top:6px solid var(--pink);background-image:linear-gradient(90deg,transparent calc(clamp(1.4rem,5vw,3rem) - .7rem),rgba(255,92,147,.45) calc(clamp(1.4rem,5vw,3rem) - .7rem) calc(clamp(1.4rem,5vw,3rem) - .7rem + 2px),transparent 0)}
+.seal{position:absolute;top:-28px;right:1.4rem;width:56px;height:56px;border-radius:50%;background:var(--hot);display:grid;place-items:center;box-shadow:0 8px 14px -6px rgba(59,15,38,.6);transform:rotate(10deg)}
+.seal svg{width:26px}
+.letter .to{font:700 clamp(1.7rem,5.4vw,2.35rem)/1.15 var(--hand);color:var(--hot);margin-bottom:1.6rem}
+.letter p{font-size:clamp(1.1rem,3.2vw,1.28rem);line-height:1.75;font-weight:400;margin-bottom:1.15em;max-width:60ch}
+.letter p:last-child{margin-bottom:0}
+.aside{font:500 1.35em var(--hand);color:var(--hot)}
+
+/* ---------- closing ---------- */
+.closing{background:var(--berry);color:var(--peach);text-align:center;padding:5rem 1.5rem 4rem;background:linear-gradient(180deg,var(--berry),#7a1740)}
+.closing h2{font:400 clamp(1.9rem,6vw,3.2rem)/1.1 var(--display);color:var(--blush);margin-bottom:1rem;text-wrap:balance}
+.closing p{font-style:italic;font-size:1.15rem}
+#more{margin-top:2rem;background:var(--pink);color:var(--berry);border:0;border-radius:99px;padding:.8rem 1.6rem;font:500 1.05rem var(--text);cursor:pointer}
+#more:hover{background:var(--tang)}
+#days{margin-top:1.4rem}
+.closing .big{width:64px;margin:0 auto 1.2rem;display:block}
+
+@media (max-width:720px){
+  .letterwrap{padding:5rem 0 6rem}
+  .side .pol{--w:27vw}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition-duration:.01s!important;transition-delay:0s!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body class="lock">
+
+<!-- INTRO -->
+<section id="intro" aria-label="Tap the heart">
+  <div>
+    <button id="heart" type="button" aria-label="Tap the heart">
+      <svg viewBox="0 0 32 28" aria-hidden="true"><path d="M23.6 0c-3.4 0-6.4 2-7.6 4.9C14.8 2 11.8 0 8.4 0 3.8 0 0 3.8 0 8.4c0 9.4 16 19.6 16 19.6s16-10.2 16-19.6C32 3.8 28.2 0 23.6 0z" fill="#fff" fill-opacity=".55"/></svg>
+      <svg class="fill" viewBox="0 0 32 28" aria-hidden="true">
+        <defs><linearGradient id="g" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#ff8a2b"/><stop offset="1" stop-color="#e8337a"/></linearGradient></defs>
+        <path d="M23.6 0c-3.4 0-6.4 2-7.6 4.9C14.8 2 11.8 0 8.4 0 3.8 0 0 3.8 0 8.4c0 9.4 16 19.6 16 19.6s16-10.2 16-19.6C32 3.8 28.2 0 23.6 0z" fill="url(#g)"/>
+      </svg>
+    </button>
+    <p id="hint" aria-live="polite">Tap the heart until it blooms.</p>
+  </div>
+</section>
+
+<main id="site">
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="title">
+    <div class="pol" style="--i:0;--r:-8deg;left:5%;top:7%"><div class="frame"><img src="images/photo1.jpg" alt="" onerror="this.remove()"></div></div>
+    <div class="pol" style="--i:1;--r:6deg;left:72%;top:5%"><div class="frame"><img src="images/photo2.jpg" alt="" onerror="this.remove()"></div></div>
+    <div class="pol" style="--i:2;--r:5deg;left:2%;top:50%"><div class="frame"><img src="images/photo3.jpg" alt="" onerror="this.remove()"></div></div>
+    <div class="pol" style="--i:3;--r:-6deg;left:77%;top:48%"><div class="frame"><img src="images/photo4.jpg" alt="" onerror="this.remove()"></div></div>
+    <div class="pol" style="--i:4;--r:-4deg;left:22%;top:72%"><div class="frame"><img src="images/photo5.jpg" alt="" onerror="this.remove()"></div></div>
+    <div class="pol" style="--i:5;--r:8deg;left:60%;top:73%"><div class="frame"><img src="images/photo6.jpg" alt="" onerror="this.remove()"></div></div>
+
+    <div>
+      <h1 id="title" tabindex="-1">Happy Monthsary<br>my Baby!!!</h1>
+      <p class="sub">Two months, Alex. Scroll down, I wrote you something.</p>
+    </div>
+    <a class="cue" href="#letter">keep scrolling</a>
+  </section>
+
+  <div class="band" aria-hidden="true"><div class="track"><span>Happy 2nd Monthsary</span><b>♥</b><span>my love</span><b>♥</b><span>my wife</span><b>♥</b><span>my baby</span><b>♥</b><span>Happy 2nd Monthsary</span><b>♥</b><span>my love</span><b>♥</b><span>my wife</span><b>♥</b><span>my baby</span><b>♥</b><span>Happy 2nd Monthsary</span><b>♥</b><span>my love</span><b>♥</b><span>my wife</span><b>♥</b><span>my baby<span>Happy 2nd Monthsary</span><b>♥</b><span>my love</span><b>♥</b><span>my wife</span><b>♥</b><span>my baby</span><b>♥</b><span>Happy 2nd Monthsary</span><b>♥</b><span>my love</span><b>♥</b><span>my wife</span><b>♥</b><span>my baby</span><b>♥</b><span>Happy 2nd Monthsary</span><b>♥</b><span>my love</span><b>♥</b><span>my wife</span><b>♥</b><span>my baby<span>Happy 2nd Monthsary</span><b>♥</b><span>my love</span><b>♥</b><span>my wife</span><b>♥</b><span>my baby</span><b>♥</b><span>Happy 2nd Monthsary</span><b>♥</b><span>my love</span><b>♥</b><span>my wife</span><b>♥</b><span>my baby</span><b>♥</b><span>Happy 2nd Monthsary</span><b>♥</b><span>my love</span><b>♥</b><span>my wife</span><b>♥</b><span>my baby</div></div>
+
+  <!-- LETTER -->
+  <section class="letterwrap side" id="letter" aria-label="Letter">
+    <div class="pol" style="--r:-7deg;left:2%;top:5%"><div class="frame"><img src="images/photo7.jpg" alt="" onerror="this.remove()"></div></div>
+    <div class="pol" style="--r:5deg;left:6%;top:36%"><div class="frame"><img src="images/photo8.jpg" alt="" onerror="this.remove()"></div></div>
+    <div class="pol" style="--r:-4deg;left:1%;top:68%"><div class="frame"><img src="images/photo9.jpg" alt="" onerror="this.remove()"></div></div>
+    <div class="pol" style="--r:6deg;right:2%;top:9%"><div class="frame"><img src="images/photo10.jpg" alt="" onerror="this.remove()"></div></div>
+    <div class="pol" style="--r:-6deg;right:5%;top:41%"><div class="frame"><img src="images/photo11.jpg" alt="" onerror="this.remove()"></div></div>
+    <div class="pol" style="--r:4deg;right:1%;top:72%"><div class="frame"><img src="images/photo12.jpg" alt="" onerror="this.remove()"></div></div>
+
+    <article class="letter">
+      <div class="seal"><svg viewBox="0 0 32 28" aria-hidden="true"><path d="M23.6 0c-3.4 0-6.4 2-7.6 4.9C14.8 2 11.8 0 8.4 0 3.8 0 0 3.8 0 8.4c0 9.4 16 19.6 16 19.6s16-10.2 16-19.6C32 3.8 28.2 0 23.6 0z" fill="#fff1ec"/></svg></div>
+      <p class="to">Happy 2nd Monthsary Alex, my love, my wife, my kakampi, my tig real talk if my mind make sense, my whole entire world.</p>
+      <p>Happy motmot baby, thank you so much for entering my life, thank you for always being here for me, making me feel heard, loved and most importantly calm.</p>
+      <p>You drowned out all the voices in my head baby, made me into a better me. I know 2 months may not be much for some people but for us it feels like a lifetime, I promise to keep my promises, I promise for us to stay together forever baby. Im sorry if I may not be the best boyfriend at times but I hope you do know I am trying my best.</p>
+      <p>As we enter the 2nd month of our relationship I hope we will have more motmots to come, more kilig moments, and we will stay forever. I love you always in all ways, this letter may be short but you know words cant explain how much i love you <span class="aside">(ambot unsa na ni akong gipang type bi unta ganahan ka ani gi type ra nako unsa naa sakong mind at the moment)</span></p>
+    </article>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="closing">
+    <span class="big"><svg viewBox="0 0 32 28" aria-hidden="true"><path d="M23.6 0c-3.4 0-6.4 2-7.6 4.9C14.8 2 11.8 0 8.4 0 3.8 0 0 3.8 0 8.4c0 9.4 16 19.6 16 19.6s16-10.2 16-19.6C32 3.8 28.2 0 23.6 0z" fill="#ff5c93"/></svg></span>
+    <h2>Here's to more motmots.</h2>
+    <p>I love you, Alex.</p>
+    <p id="days" hidden></p>
+    <button id="more" type="button">one more heart</button>
+  </section>
+</main>
+
+<script>
+/* Set the date you two started, as YYYY-MM-DD, to show a day counter at the bottom. Leave "" to hide it. */
+const START_DATE = "";
+const TARGET = 25;
+
+const $ = s => document.querySelector(s);
+const intro = $("#intro"), heart = $("#heart"), hint = $("#hint");
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const colors = ["#ff8a2b","#ff5c93","#e8337a","#ff9a3c","#ffb199"];
+const HEART = '<svg viewBox="0 0 32 28"><path d="M23.6 0c-3.4 0-6.4 2-7.6 4.9C14.8 2 11.8 0 8.4 0 3.8 0 0 3.8 0 8.4c0 9.4 16 19.6 16 19.6s16-10.2 16-19.6C32 3.8 28.2 0 23.6 0z" fill="COLOR"/></svg>';
+
+function burst(fromEl, n){
+  const r = fromEl.getBoundingClientRect();
+  for(let i=0;i<n;i++){
+    const el = document.createElement("div");
+    el.className = "float";
+    el.innerHTML = HEART.replace("COLOR", colors[Math.random()*colors.length|0]);
+    const s = .5 + Math.random()*1.1;
+    const x = r.left + r.width/2 + (Math.random()-.5)*r.width*.7;
+    const y = r.top + r.height*.35;
+    const dx = (Math.random()-.5)*220, dy = -(140 + Math.random()*220);
+    el.style.left = x+"px"; el.style.top = y+"px";
+    document.body.appendChild(el);
+    el.animate([
+      {transform:`translate(0,0) scale(${s*.4}) rotate(0)`,opacity:1},
+      {transform:`translate(${dx}px,${dy}px) scale(${s}) rotate(${(Math.random()-.5)*50}deg)`,opacity:0}
+    ],{duration:900+Math.random()*700,easing:"cubic-bezier(.2,.7,.3,1)"}).onfinish = () => el.remove();
+  }
+}
+
+let count = 0;
+heart.addEventListener("click", () => {
+  if(count >= TARGET) return;
+  count++;
+  intro.style.setProperty("--p", "0%");
+  heart.style.setProperty("--p", (count/TARGET*100)+"%");
+  burst(heart, 2);
+  if(!reduce) heart.animate([{transform:"scale(1)"},{transform:"scale(1.09)"},{transform:"scale(1)"}],{duration:200});
+  hint.textContent = count < 8 ? "Keep going." : count < 18 ? "Don't stop." : count < TARGET ? "Almost." : "";
+  if(count === TARGET) bloom();
+});
+
+function bloom(){
+  heart.disabled = true;
+  burst(heart, 24);
+  intro.classList.add("bloom");
+  $("#site").classList.add("in");
+  document.body.classList.add("in");
+  let done = false;
+  const finish = () => {
+    if(done) return; done = true;
+    intro.remove();
+    document.body.classList.remove("lock");
+    $("#title").focus({preventScroll:true});
+  };
+  intro.addEventListener("transitionend", e => { if(e.propertyName === "clip-path") finish(); });
+  setTimeout(finish, 2000);
+}
+
+document.querySelector(".hero").insertAdjacentHTML("beforeend",Array.from({length:9},(_,i)=>
+  `<div class="drift" style="left:${8+i*10.5}%;animation-duration:${9+(i*7%6)}s;animation-delay:${-i*1.7}s">${HEART.replace("COLOR",i%2?"#fff1ec":"#ffd3bd")}</div>`).join(""));
+
+$("#more").addEventListener("click", e => burst(e.currentTarget, 8));
+
+if(START_DATE){
+  const d = Math.floor((Date.now() - new Date(START_DATE + "T00:00:00")) / 864e5);
+  if(d >= 0){ const el = $("#days"); el.textContent = d + " days with you, and counting."; el.hidden = false; }
+}
+</script>
+</body>
+</html>
